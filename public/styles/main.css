@@ -1,0 +1,95 @@
+:root {
+    --main-font: "Playwrite DE Grund", cursive;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: var(--main-font);
+    background-color: rgb(148, 235, 247);
+}
+
+.response-area {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: white;
+    padding: 30px;
+    width: 60%;
+    border-radius: 35px;
+    box-shadow: 0 10px 5px 2px rgba(0, 0, 0, 0.25);
+}
+
+.area {
+    margin-bottom: 10px;
+}
+
+.city {
+    font-size: 1.5em;
+}
+
+#search_container {
+    display: inline-flex;
+}
+
+.input {
+    border: none;
+    padding: 20px;
+    border-radius: 35px 0 0 35px;
+    font-family: var(--main-font);
+    font-size: 1.5em;
+}
+
+.btn {
+    border: none;
+    padding: 10px 30px;
+    background-color: orange;
+    border-radius: 0 35px 35px 0;
+    font-family: var(--main-font);
+    cursor: pointer;
+    transition: background-color 0.5s ease, transform 0.5s ease;
+}
+
+.btn:hover {
+    background-color: rgb(255, 238, 0);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+#error-alert {
+    text-align: center;
+    margin-top: 50px;
+    background-color: red;
+    padding: 20px;
+    color: white;
+    font-weight: 500;
+    border-radius: 15px;
+    font-size: 1.5em;
+}
+
+
+@media (max-width: 768px) {
+    #search_container {
+        width: 80%;
+    }
+
+    .input {
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .response-area {
+        width: 90%;
+    }
+}

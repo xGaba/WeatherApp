@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather app</title>
+    <link href="/styles/main.css" rel="stylesheet" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Playwrite+DE+Grund:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <form id="searchForm" method="POST" action="/submit">
+        <div id="search_container">
+          <input type="text" name="search" class="input" />
+          <button type="submit" class="btn"><strong>SEARCH</strong></button>
+        </div>
+      </form>
+      <% if (locals.error) { %>
+      <div id="error-alert"><%= error %></div>
+      <% } %>
+    </div>
+
+    <% if (locals.content) { %>
+    <div class="response-icon">
+      <img
+        id="icon"
+        src="<%= iconURL %>"
+        alt="weather icon"
+        style="height: 100px; width: 100px"
+      />
+    </div>
+    <div class="response-area">
+      <div class="area city">
+        Location: <strong><%= content.city_format %></strong>
+      </div>
+      <div class="area currentTemp">Current temperature: <%= content.currentTemp %> ºC</div>
+      <div class="area minTemp">Minimum expected temperature: <%= content.minTemp %> ºC</div>
+      <div class="area maxTemp">Maximum expected temperature: <%= content.maxTemp %> ºC</div>
+      <div class="area humidity">Humidity: <%= content.humidity %> %</div>
+      <div class="area weather_main"><%= content.weather_main %></div>
+    </div>
+    <% } %>
+  </body>
+  <script>
+    //Show alert when the location doesn't exists
+    function showAlert() {
+      const alert = document.getElementById("error-alert");
+      alert.style.display = "block";
+      setTimeout(() => {
+        alert.style.display = "none";
+      }, 3000);
+    }
+
+    window.addEventListener('load', showAlert);
+  </script>
+</html>
